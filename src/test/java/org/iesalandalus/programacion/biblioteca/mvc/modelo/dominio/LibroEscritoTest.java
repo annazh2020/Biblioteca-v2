@@ -60,7 +60,7 @@ public class LibroEscritoTest {
 
 	@Test
 	public void constructorTituloNoValidoAutorValidoNumPaginasValidoLanzaExcepcion() {
-		Libro libro = null;
+		LibroEscrito libro = null;
 		try {
 			libro = new LibroEscrito(null, AUTOR1, NUM_PAGINAS1);
 			fail(TITULO_INCORRECTO);
@@ -92,7 +92,7 @@ public class LibroEscritoTest {
 	
 	@Test
 	public void constructorTituloValidoAutorNoValidoNumPaginasValidoLanzaExcepcion() {
-		Libro libro = null;
+		LibroEscrito libro = null;
 		try {
 			libro = new LibroEscrito(TITULO2, null, NUM_PAGINAS2);
 			fail(AUTOR_INCORRECTO);
@@ -124,7 +124,7 @@ public class LibroEscritoTest {
 	
 	@Test
 	public void constructorTituloValidoAutorValidoNumPaginasNoValidoLanzaExcepcion() {
-		Libro libro = null;
+		LibroEscrito libro = null;
 		try {
 			libro = new LibroEscrito(TITULO1, AUTOR1, 0);
 			fail(NUM_PAGINAS_INCORRECTO);
@@ -134,7 +134,7 @@ public class LibroEscritoTest {
 		} catch (Exception e) {
 			fail(TIPO_NO_CORRECTO);
 		}
-		Libro alumno = null;
+		LibroEscrito alumno = null;
 		try {
 			alumno = new LibroEscrito(TITULO1, AUTOR1, -1);
 			fail(NUM_PAGINAS_INCORRECTO);
@@ -172,16 +172,16 @@ public class LibroEscritoTest {
 	
 	@Test
 	public void getLibroFicticioTituloValidoAutorValidoDevuelveLibroCorrectamente() {
-		Libro libro = Libro.getLibroFicticio(TITULO1, AUTOR1);
+		Libro libro = LibroEscrito.getLibroFicticio(TITULO1, AUTOR1);
 		assertThat(TITULO_NO_ESPERADO, libro.getTitulo(), is(TITULO1));
 		assertThat(AUTOR_NO_ESPERADO, libro.getAutor(), is(AUTOR1));
 	}
 	
 	@Test
 	public void getLibroFicticioTituloNoValidoAutorValidoLanzaExcepcion() {
-		Libro libro = null;
+		LibroEscrito libro = null;
 		try {
-			libro = Libro.getLibroFicticio(null, AUTOR1);
+			libro = LibroEscrito.getLibroFicticio(null, AUTOR1);
 			fail(TITULO_INCORRECTO);
 		} catch (NullPointerException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_TITULO_NULO));
@@ -190,7 +190,7 @@ public class LibroEscritoTest {
 			fail(TIPO_NO_CORRECTO);
 		}
 		try {
-			libro = Libro.getLibroFicticio("", AUTOR1);
+			libro = LibroEscrito.getLibroFicticio("", AUTOR1);
 			fail(TITULO_INCORRECTO);
 		} catch (IllegalArgumentException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_TITULO_NO_VALIDO));
@@ -199,7 +199,7 @@ public class LibroEscritoTest {
 			fail(TIPO_NO_CORRECTO);
 		}
 		try {
-			libro = Libro.getLibroFicticio("  ", AUTOR1);
+			libro = LibroEscrito.getLibroFicticio("  ", AUTOR1);
 			fail(TITULO_INCORRECTO);
 		} catch (IllegalArgumentException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_TITULO_NO_VALIDO));
@@ -211,9 +211,9 @@ public class LibroEscritoTest {
 	
 	@Test
 	public void getLibroFicticioTituloValidoAutorNoValidoLanzaExcepcion() {
-		Libro libro = null;
+		LibroEscrito libro = null;
 		try {
-			libro = Libro.getLibroFicticio(TITULO2, null);
+			libro = LibroEscrito.getLibroFicticio(TITULO2, null);
 			fail(AUTOR_INCORRECTO);
 		} catch (NullPointerException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_AUTOR_NULO));
@@ -222,7 +222,7 @@ public class LibroEscritoTest {
 			fail(TIPO_NO_CORRECTO);
 		}
 		try {
-			libro = Libro.getLibroFicticio(TITULO2, "");
+			libro = LibroEscrito.getLibroFicticio(TITULO2, "");
 			fail(AUTOR_INCORRECTO);
 		} catch (IllegalArgumentException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_AUTOR_NO_VALIDO));
@@ -231,7 +231,7 @@ public class LibroEscritoTest {
 			fail(TIPO_NO_CORRECTO);
 		}
 		try {
-			libro = Libro.getLibroFicticio(TITULO2, "   ");
+			libro = LibroEscrito.getLibroFicticio(TITULO2, "   ");
 			fail(AUTOR_INCORRECTO);
 		} catch (IllegalArgumentException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_AUTOR_NO_VALIDO));

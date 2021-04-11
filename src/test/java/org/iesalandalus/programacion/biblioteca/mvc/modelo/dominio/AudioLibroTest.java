@@ -158,7 +158,7 @@ public class AudioLibroTest {
 	
 	@Test
 	public void constructorLibroNuloLanzaExcepcion() {
-		AudioLibro libro = null;
+		Libro libro = null;
 		try {
 			libro = new AudioLibro(null);
 			fail(LIBRO_NULO);
@@ -172,7 +172,7 @@ public class AudioLibroTest {
 	
 	@Test
 	public void getLibroFicticioTituloValidoAutorValidoDevuelveLibroCorrectamente() {
-		Libro libro = Libro.getLibroFicticio(TITULO1, AUTOR1);
+		Libro libro = LibroEscrito.getLibroFicticio(TITULO1, AUTOR1);
 		assertThat(TITULO_NO_ESPERADO, libro.getTitulo(), is(TITULO1));
 		assertThat(AUTOR_NO_ESPERADO, libro.getAutor(), is(AUTOR1));
 	}
@@ -181,7 +181,7 @@ public class AudioLibroTest {
 	public void getLibroFicticioTituloNoValidoAutorValidoLanzaExcepcion() {
 		Libro libro = null;
 		try {
-			libro = Libro.getLibroFicticio(null, AUTOR1);
+			libro = LibroEscrito.getLibroFicticio(null, AUTOR1);
 			fail(TITULO_INCORRECTO);
 		} catch (NullPointerException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_TITULO_NULO));
@@ -190,7 +190,7 @@ public class AudioLibroTest {
 			fail(TIPO_NO_CORRECTO);
 		}
 		try {
-			libro = Libro.getLibroFicticio("", AUTOR1);
+			libro = LibroEscrito.getLibroFicticio("", AUTOR1);
 			fail(TITULO_INCORRECTO);
 		} catch (IllegalArgumentException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_TITULO_NO_VALIDO));
@@ -199,7 +199,7 @@ public class AudioLibroTest {
 			fail(TIPO_NO_CORRECTO);
 		}
 		try {
-			libro = Libro.getLibroFicticio("  ", AUTOR1);
+			libro = LibroEscrito.getLibroFicticio("  ", AUTOR1);
 			fail(TITULO_INCORRECTO);
 		} catch (IllegalArgumentException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_TITULO_NO_VALIDO));
@@ -213,7 +213,7 @@ public class AudioLibroTest {
 	public void getLibroFicticioTituloValidoAutorNoValidoLanzaExcepcion() {
 		Libro libro = null;
 		try {
-			libro = Libro.getLibroFicticio(TITULO2, null);
+			libro = LibroEscrito.getLibroFicticio(TITULO2, null);
 			fail(AUTOR_INCORRECTO);
 		} catch (NullPointerException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_AUTOR_NULO));
@@ -222,7 +222,7 @@ public class AudioLibroTest {
 			fail(TIPO_NO_CORRECTO);
 		}
 		try {
-			libro = Libro.getLibroFicticio(TITULO2, "");
+			libro = LibroEscrito.getLibroFicticio(TITULO2, "");
 			fail(AUTOR_INCORRECTO);
 		} catch (IllegalArgumentException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_AUTOR_NO_VALIDO));
@@ -231,7 +231,7 @@ public class AudioLibroTest {
 			fail(TIPO_NO_CORRECTO);
 		}
 		try {
-			libro = Libro.getLibroFicticio(TITULO2, "   ");
+			libro = LibroEscrito.getLibroFicticio(TITULO2, "   ");
 			fail(AUTOR_INCORRECTO);
 		} catch (IllegalArgumentException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_AUTOR_NO_VALIDO));
@@ -249,7 +249,7 @@ public class AudioLibroTest {
 	
 	@Test
 	public void equalsHashCodeComparaCorrectamente() {
-		AudioLibro otroLibro = new AudioLibro(TITULO1, AUTOR1, DURACION2);
+		Libro otroLibro = new AudioLibro(TITULO1, AUTOR1, DURACION2);
 		assertThat(OBJETOS_DEBERIAN_SER_IGUALES, primerLibro, is(primerLibro));
 		assertThat(OBJETOS_DEBERIAN_SER_IGUALES, primerLibro.hashCode(), is(primerLibro.hashCode()));
 		assertThat(OBJETOS_DEBERIAN_SER_IGUALES, primerLibro, is(otroLibro));

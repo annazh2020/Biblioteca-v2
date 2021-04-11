@@ -1,6 +1,6 @@
 # Tarea: Biblioteca IES Al-Ándalus
 ## Profesor: José Ramón Jiménez Reyes
-## Alumno:
+## Alumno: Anna Zhuperina
 
 Desde el IES Al-Ándalus ya nos han comentado que les gustaría que los datos fuesen persistentes en ficheros.
 

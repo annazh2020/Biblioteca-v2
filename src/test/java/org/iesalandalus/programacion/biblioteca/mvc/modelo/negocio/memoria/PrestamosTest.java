@@ -18,6 +18,7 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.AudioLibro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.LibroEscrito;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.LibroEscrito;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Prestamo;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IPrestamos;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Prestamos;
@@ -274,7 +275,7 @@ public class PrestamosTest {
 	public void getLibroValidoDevuelvePrestamosLibroOrdenadosPorFechaAlumno() {
 		IPrestamos prestamos = insertarOchoPrestamos();
 		try {
-			List<Prestamo> prestamosLibroOrdenados = prestamos.get(Libro.getLibroFicticio("Cien años de soledad", "Gabriel García Márquez"));
+			List<Prestamo> prestamosLibroOrdenados = prestamos.get(LibroEscrito.getLibroFicticio("Cien años de soledad", "Gabriel García Márquez"));
 			assertThat(TAMANO_NO_ESPERADO, prestamosLibroOrdenados.size(), is(2));
 			assertThat(PRESTAMO_NO_ESPERADO, prestamosLibroOrdenados.get(0), is(prestamo4));
 			assertThat(PRESTAMO_NO_ESPERADO, prestamosLibroOrdenados.get(1), is(prestamo1));

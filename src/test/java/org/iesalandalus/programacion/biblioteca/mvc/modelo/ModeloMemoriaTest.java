@@ -13,7 +13,7 @@ import java.util.List;
 import javax.naming.OperationNotSupportedException;
 
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
-import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.LibroEscrito;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Prestamo;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Alumnos;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Libros;
@@ -40,8 +40,8 @@ public class ModeloMemoriaTest {
 	
 	private static Alumno alumnoExistente;
 	private static Alumno alumnoNoExistente;
-	private static Libro libroExistente;
-	private static Libro libroNoExistente;
+	private static LibroEscrito libroExistente;
+	private static LibroEscrito libroNoExistente;
 	private static Prestamo prestamoExistente;
 	private static Prestamo prestamoNoExistente;
 	
@@ -55,8 +55,8 @@ public class ModeloMemoriaTest {
 	public static void asignarValoresAtributos() {
 		alumnoExistente = Alumno.getAlumnoFicticio("bob@gmail.com");
 		alumnoNoExistente = Alumno.getAlumnoFicticio("patricio@gmail.com");
-		libroExistente = Libro.getLibroFicticio("Cien años de soledad", "Gabriel García Márquez");
-		libroNoExistente = Libro.getLibroFicticio("El retrato de Dorian Gray", "Oscar Wilde");
+		libroExistente = LibroEscrito.getLibroFicticio("Cien años de soledad", "Gabriel García Márquez");
+		libroNoExistente = LibroEscrito.getLibroFicticio("El retrato de Dorian Gray", "Oscar Wilde");
 		prestamoExistente = Prestamo.getPrestamoFicticio(alumnoExistente, libroExistente);
 		prestamoNoExistente = Prestamo.getPrestamoFicticio(alumnoNoExistente, libroNoExistente);
 	}
